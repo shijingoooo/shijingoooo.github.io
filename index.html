@@ -50,7 +50,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Søk"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://shijingoooo.github.io"></form>
@@ -71,13 +71,22 @@
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/21/Hexo+Git搭建个人Blog/">环境搭建</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2 id="title：环境搭建"><a href="#title：环境搭建" class="headerlink" title="title：环境搭建"></a>title：环境搭建</h2><h1 id="一-安装node-js"><a href="#一-安装node-js" class="headerlink" title="一.安装node.js"></a>一.安装node.js</h1><p><a href="https://nodejs.org/en/download/" target="_blank" rel="external">下载</a></p>
-<h1 id="二-安装Git"><a href="#二-安装Git" class="headerlink" title="二.安装Git"></a>二.安装Git</h1><p><a href="https://git-scm.com/download/win" target="_blank" rel="external">下载</a></p>
-<h1 id="三-安装Hexo"><a href="#三-安装Hexo" class="headerlink" title="三.安装Hexo"></a>三.安装Hexo</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-cli</div></pre></td></tr></table></figure>
-<h1 id="四-Quick-Start"><a href="#四-Quick-Start" class="headerlink" title="四.Quick Start"></a>四.Quick Start</h1><h2 id="1-建站"><a href="#1-建站" class="headerlink" title="1.建站"></a>1.建站</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init blog</div></pre></td></tr></table></figure>
+        <h3 id="一-安装node-js"><a href="#一-安装node-js" class="headerlink" title="一.安装node.js"></a>一.安装node.js</h3><p><a href="https://nodejs.org/en/download/" target="_blank" rel="external">下载</a></p>
+<h3 id="二-安装Git"><a href="#二-安装Git" class="headerlink" title="二.安装Git"></a>二.安装Git</h3><p><a href="https://git-scm.com/download/win" target="_blank" rel="external">下载</a></p>
+<h3 id="三-安装Hexo"><a href="#三-安装Hexo" class="headerlink" title="三.安装Hexo"></a>三.安装Hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-cli</div></pre></td></tr></table></figure>
+<h3 id="四-Quick-Start"><a href="#四-Quick-Start" class="headerlink" title="四.Quick Start"></a>四.Quick Start</h3><h4 id="1-建站"><a href="#1-建站" class="headerlink" title="1.建站"></a>1.建站</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init blog</div></pre></td></tr></table></figure>
 <p>当前路径下创建blog文件夹并初始化，该目录即网站根目录。hexo命令需要在该目录路径下执行。新建完成后，指定文件夹的目录如下：</p>
 <p>├── _config.yml</p>
 <p>├── package.json</p>
@@ -97,29 +106,30 @@
 <p>资源文件夹是存放用户资源的地方。除 <em>posts 文件夹之外，开头命名为 </em> (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。</p>
 <p><strong>themes</strong></p>
 <p>主题 文件夹。Hexo 会根据主题来生成静态页面。可以在_config.yml中更换主题，<a href="https://hexo.io/themes/" target="_blank" rel="external">更多主题</a></p>
-<h2 id="2-安装依赖"><a href="#2-安装依赖" class="headerlink" title="2.安装依赖"></a>2.安装依赖</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd blog</div></pre></td></tr></table></figure>
+<h4 id="2-安装依赖"><a href="#2-安装依赖" class="headerlink" title="2.安装依赖"></a>2.安装依赖</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd blog</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure>
 <p>大部分依赖已经在<code>hexo init blog</code>安装</p>
-<h2 id="3-新建文章"><a href="#3-新建文章" class="headerlink" title="3.新建文章"></a>3.新建文章</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new &lt;title&gt;</div></pre></td></tr></table></figure>
+<h4 id="3-新建文章"><a href="#3-新建文章" class="headerlink" title="3.新建文章"></a>3.新建文章</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new &lt;title&gt;</div></pre></td></tr></table></figure>
 <p><code>hexo new 开学第一天</code> ，会在\source_posts文件夹下生成<code>开学第一天.md</code>的文件</p>
-<h2 id="4-生成"><a href="#4-生成" class="headerlink" title="4.生成"></a>4.生成</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo generate</div></pre></td></tr></table></figure>
+<h4 id="4-生成"><a href="#4-生成" class="headerlink" title="4.生成"></a>4.生成</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo generate</div></pre></td></tr></table></figure>
 <p>hexo generate (hexo g) 生成静态文件，会在当前目录下生成一个新的叫做public的文件夹</p>
-<h2 id="5-启动服务器"><a href="#5-启动服务器" class="headerlink" title="5.启动服务器"></a>5.启动服务器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo server</div></pre></td></tr></table></figure>
+<h4 id="5-启动服务器"><a href="#5-启动服务器" class="headerlink" title="5.启动服务器"></a>5.启动服务器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo server</div></pre></td></tr></table></figure>
 <p>hexo server (hexo s) 启动本地web服务，可以在<a href="http://localhost:4000/预览博客" target="_blank" rel="external">http://localhost:4000/预览博客</a></p>
-<h2 id="6-部署网站"><a href="#6-部署网站" class="headerlink" title="6.部署网站"></a>6.部署网站</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo deploy</div></pre></td></tr></table></figure>
+<h4 id="6-部署网站"><a href="#6-部署网站" class="headerlink" title="6.部署网站"></a>6.部署网站</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo deploy</div></pre></td></tr></table></figure>
 <p>hexo deploy(hexo d)可以部署到很多平台，具体可以参考这个链接. 如果部署到github，需要在配置文件_config.xml中作如下修改：</p>
 <p>deploy:</p>
 <p>type: git</p>
 <p>repo: <a href="https://github.com/shijingoooo/shijingoooo.github.io.git" target="_blank" rel="external">https://github.com/shijingoooo/shijingoooo.github.io.git</a></p>
 <p>branch: master</p>
 <p><strong>需要先在github上面创建仓库</strong></p>
-<h1 id="五-github创建仓库"><a href="#五-github创建仓库" class="headerlink" title="五.github创建仓库"></a>五.github创建仓库</h1><p>项目名字必须为username.github.io，username即github用户名，我的是shijing，所以我的仓库名shijing.github.io。创建空仓库方便本地提交。创建成功后就可以使用<code>hexo d</code>提交到github，访问<a href="https://shijingoooo.github.io/，就可以看到自己blog。">https://shijingoooo.github.io/，就可以看到自己blog。</a></p>
+<h3 id="五-github创建仓库"><a href="#五-github创建仓库" class="headerlink" title="五.github创建仓库"></a>五.github创建仓库</h3><p>项目名字必须为username.github.io，username即github用户名，我的是shijing，所以我的仓库名shijing.github.io。创建空仓库方便本地提交。创建成功后就可以使用<code>hexo d</code>提交到github，访问<a href="https://shijingoooo.github.io/，就可以看到自己blog。">https://shijingoooo.github.io/，就可以看到自己blog。</a></p>
 <p>更详细个配置访问：<a href="https://my.oschina.net/ryaneLee/blog/638440" target="_blank" rel="external">https://my.oschina.net/ryaneLee/blog/638440</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shijingoooo.github.io/2017/05/21/Hexo+Git搭建个人Blog/" data-id="cj2yoy1ia0000y8ue1i0ixr0y" class="article-share-link">Share</a>
+      <a data-url="https://shijingoooo.github.io/2017/05/21/Hexo+Git搭建个人Blog/" data-id="cj2ypa86u00009wueo8bi0jqw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -164,7 +174,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shijingoooo.github.io/2017/05/21/hello-world/" data-id="cj2yoy1ir0001y8ueayo1lbch" class="article-share-link">Share</a>
+      <a data-url="https://shijingoooo.github.io/2017/05/21/hello-world/" data-id="cj2ypa87800019wuef2ovzpcf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -189,7 +199,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Arkiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
     </div>
@@ -199,12 +209,12 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Siste innlegg</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2017/05/21/Hexo+Git搭建个人Blog/">(no title)</a>
+            <a href="/2017/05/21/Hexo+Git搭建个人Blog/">环境搭建</a>
           </li>
         
           <li>
