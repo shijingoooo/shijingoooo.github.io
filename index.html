@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>开始Blog吧</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="开始Blog吧">
+<meta property="og:url" content="https://shijingoooo.github.io/index.html">
+<meta property="og:site_name" content="开始Blog吧">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="开始Blog吧">
+  
+    <link rel="alternate" href="/atom.xml" title="开始Blog吧" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">开始Blog吧</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://shijingoooo.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Hexo+Git搭建个人Blog" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/21/Hexo+Git搭建个人Blog/" class="article-date">
+  <time datetime="2017-05-21T11:18:46.102Z" itemprop="datePublished">2017-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="title：环境搭建"><a href="#title：环境搭建" class="headerlink" title="title：环境搭建"></a>title：环境搭建</h2><h1 id="一-安装node-js"><a href="#一-安装node-js" class="headerlink" title="一.安装node.js"></a>一.安装node.js</h1><p><a href="https://nodejs.org/en/download/" target="_blank" rel="external">下载</a></p>
+<h1 id="二-安装Git"><a href="#二-安装Git" class="headerlink" title="二.安装Git"></a>二.安装Git</h1><p><a href="https://git-scm.com/download/win" target="_blank" rel="external">下载</a></p>
+<h1 id="三-安装Hexo"><a href="#三-安装Hexo" class="headerlink" title="三.安装Hexo"></a>三.安装Hexo</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-cli</div></pre></td></tr></table></figure>
+<h1 id="四-Quick-Start"><a href="#四-Quick-Start" class="headerlink" title="四.Quick Start"></a>四.Quick Start</h1><h2 id="1-建站"><a href="#1-建站" class="headerlink" title="1.建站"></a>1.建站</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init blog</div></pre></td></tr></table></figure>
+<p>当前路径下创建blog文件夹并初始化，该目录即网站根目录。hexo命令需要在该目录路径下执行。新建完成后，指定文件夹的目录如下：</p>
+<p>├── _config.yml</p>
+<p>├── package.json</p>
+<p>├── scaffolds</p>
+<p>├── source</p>
+<p>|   ├── _drafts</p>
+<p>|   └── _posts</p>
+<p>└── themes</p>
+<p><strong>_config.yml</strong></p>
+<p>网站的配置信息，您可以在此配置大部分的参数。</p>
+<p><strong>package.json</strong></p>
+<p>应用程序的信息。EJS, Stylus 和 Markdown renderer 已默认安装，您可以自由移除。</p>
+<p><strong>scaffolds</strong></p>
+<p>模版文件夹。当您新建文章时，Hexo 会根据 scaffold 来建立文件。</p>
+<p>Hexo的模板是指在新建的markdown文件中默认填充的内容。例如，如果您修改scaffold/post.md中的Front-matter内容，那么每次新建一篇文章时都会包含这个修改。</p>
+<p><strong>source</strong></p>
+<p>资源文件夹是存放用户资源的地方。除 <em>posts 文件夹之外，开头命名为 </em> (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。</p>
+<p><strong>themes</strong></p>
+<p>主题 文件夹。Hexo 会根据主题来生成静态页面。可以在_config.yml中更换主题，<a href="https://hexo.io/themes/" target="_blank" rel="external">更多主题</a></p>
+<h2 id="2-安装依赖"><a href="#2-安装依赖" class="headerlink" title="2.安装依赖"></a>2.安装依赖</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd blog</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure>
+<p>大部分依赖已经在<code>hexo init blog</code>安装</p>
+<h2 id="3-新建文章"><a href="#3-新建文章" class="headerlink" title="3.新建文章"></a>3.新建文章</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new &lt;title&gt;</div></pre></td></tr></table></figure>
+<p><code>hexo new 开学第一天</code> ，会在\source_posts文件夹下生成<code>开学第一天.md</code>的文件</p>
+<h2 id="4-生成"><a href="#4-生成" class="headerlink" title="4.生成"></a>4.生成</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo generate</div></pre></td></tr></table></figure>
+<p>hexo generate (hexo g) 生成静态文件，会在当前目录下生成一个新的叫做public的文件夹</p>
+<h2 id="5-启动服务器"><a href="#5-启动服务器" class="headerlink" title="5.启动服务器"></a>5.启动服务器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo server</div></pre></td></tr></table></figure>
+<p>hexo server (hexo s) 启动本地web服务，可以在<a href="http://localhost:4000/预览博客" target="_blank" rel="external">http://localhost:4000/预览博客</a></p>
+<h2 id="6-部署网站"><a href="#6-部署网站" class="headerlink" title="6.部署网站"></a>6.部署网站</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo deploy</div></pre></td></tr></table></figure>
+<p>hexo deploy(hexo d)可以部署到很多平台，具体可以参考这个链接. 如果部署到github，需要在配置文件_config.xml中作如下修改：</p>
+<p>deploy:</p>
+<p>type: git</p>
+<p>repo: <a href="https://github.com/shijingoooo/shijingoooo.github.io.git" target="_blank" rel="external">https://github.com/shijingoooo/shijingoooo.github.io.git</a></p>
+<p>branch: master</p>
+<p><strong>需要先在github上面创建仓库</strong></p>
+<h1 id="五-github创建仓库"><a href="#五-github创建仓库" class="headerlink" title="五.github创建仓库"></a>五.github创建仓库</h1><p>项目名字必须为username.github.io，username即github用户名，我的是shijing，所以我的仓库名shijing.github.io。创建空仓库方便本地提交。创建成功后就可以使用<code>hexo d</code>提交到github，访问<a href="https://shijingoooo.github.io/，就可以看到自己blog。">https://shijingoooo.github.io/，就可以看到自己blog。</a></p>
+<p>更详细个配置访问：<a href="https://my.oschina.net/ryaneLee/blog/638440" target="_blank" rel="external">https://my.oschina.net/ryaneLee/blog/638440</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shijingoooo.github.io/2017/05/21/Hexo+Git搭建个人Blog/" data-id="cj2yoy1ia0000y8ue1i0ixr0y" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/21/hello-world/" class="article-date">
+  <time datetime="2017-05-21T10:11:44.225Z" itemprop="datePublished">2017-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/21/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shijingoooo.github.io/2017/05/21/hello-world/" data-id="cj2yoy1ir0001y8ueayo1lbch" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/05/21/Hexo+Git搭建个人Blog/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/21/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Shijing<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
