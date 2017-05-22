@@ -50,7 +50,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Søk"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://shijingoooo.github.io"></form>
@@ -60,6 +60,85 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Intellij IDEA开发简单JSP" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/21/Intellij IDEA开发简单JSP/" class="article-date">
+  <time datetime="2017-05-21T13:15:03.090Z" itemprop="datePublished">2017-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/21/Intellij IDEA开发简单JSP/">Intellij IDEA开发简单JSP</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一-安装Intellij-IDEA"><a href="#一-安装Intellij-IDEA" class="headerlink" title="一.安装Intellij IDEA"></a>一.安装Intellij IDEA</h3><p>1.<a href="https://www.jetbrains.com/idea/#chooseYourEdition" target="_blank" rel="external">下载</a></p>
+<p>2.<a href="https://github.com/ewen0930/WebStorm-Chinese/releases" target="_blank" rel="external">汉化</a>  将下载汉化包(新版本汉化包是.rar格式，旧版是.jar格式)放在根目录的lib文件夹下，重启程序。</p>
+<p>3.license server： <code>http://jetbrains.tech</code></p>
+<h3 id="二-安装Java-jdk"><a href="#二-安装Java-jdk" class="headerlink" title="二.安装Java jdk"></a>二.安装Java jdk</h3><p>1.<a href="http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html" target="_blank" rel="external">下载</a></p>
+<p>2.配置环境变量</p>
+<ul>
+<li>系统变量→新建 JAVA_HOME 变量 变量值填写jdk的安装目录</li>
+<li>Path变量→编辑在变量值最后输入 %JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;</li>
+<li>系统变量→新建 CLASSPATH 变量变量值填写 .;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar（注意最前面有一点）</li>
+</ul>
+<p>3.检验是否配置成功。<br>cmd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -version</div></pre></td></tr></table></figure></p>
+<p>出现版本信息则成功。</p>
+<p><strong>jdk和jre是一起安装的不需要单独下载安装jre。</strong></p>
+<h3 id="三-安装Tomcat"><a href="#三-安装Tomcat" class="headerlink" title="三.安装Tomcat"></a>三.安装Tomcat</h3><ol>
+<li><p>.<a href="http://tomcat.apache.org/download-90.cgi" target="_blank" rel="external">下载</a></p>
+</li>
+<li><p>配置环境变量<br>新建CATALINA_HOME  例如：C:\Program Files\Apache Software Foundation\Tomcat 8.0\bin<br><img src="http://i.imgur.com/JDt7OwS.png" alt="tomcat环境变量设置"></p>
+</li>
+<li><p>测试是否成功</p>
+</li>
+</ol>
+<p>如果没有加入服务,进入bin目录执行<code>service.bat</code>文件,然后使用<code>startup.bat</code>启动服务，<code>shutdown.bat</code>停止服务。最后<code>http://localhost:8080/</code>看到欢迎界面说明成功。</p>
+<h3 id="四-配置Idea"><a href="#四-配置Idea" class="headerlink" title="四.配置Idea"></a>四.配置Idea</h3><ol>
+<li>新建项目：<br><img src="http://i.imgur.com/SsjzfY3.png" alt="新建项目"></li>
+<li>左边栏选择 Java Enterprise，右侧勾选 Web Application，具体如下：<br><img src="http://i.imgur.com/gdapeu1.png" alt="配置项目"></li>
+<li>输入项目名：<br><img src="http://i.imgur.com/CpSC2oM.png" alt="输入项目名"></li>
+<li>在 project/web/WEB-INF 目录下新建两个目录：lib 和 classes，前者用来保存后期引入的 jar 包，后者用于存放编译输出的文件：<br><img src="http://i.imgur.com/b77WQMk.png" alt="添加lib和class目录"></li>
+<li>在 Modules &gt; Paths 中设置编译输出目录为之前创建的 classes 文件夹，如下图所示：<br><img src="http://i.imgur.com/7OOs8P7.png" alt="输出目录"></li>
+<li>在 Modules &gt; Dependencies 中点击下方加号按钮，将之前创建的 lib 文件夹添加进库目录（之后选择 Jar Directory）：<br><img src="http://i.imgur.com/PAW7V9m.png" alt="添加库目录"><br><img src="http://i.imgur.com/q8CQcd6.png" alt="添加jar"><br><img src="http://i.imgur.com/OGXJ7NA.png" alt="添加jar后"></li>
+<li>在 Artifacts &gt; Output Layout 中，将右侧 Available Elements 中的 lib 文件夹加入到左侧，使得 lib 中的文件会在编译的时候输出：<br><img src="http://i.imgur.com/dPBCKpc.png" alt="OutputLayout"></li>
+<li><p>Tomcat 目录下有一个 webapps 文件夹，是服务启动的根目录，类似于 Apache 的 htdocs。当启动 Tomcat 服务时，访问 localhost:8080 相当于访问 webapps 目录；</p>
+<p> 如果我们把项目输出的文件放到 webapps 中的项目文件夹中（如：/myproject），就可以通过访问 localhost:8080/myproject 的方式访问到这一项目；</p>
+<p> IntelliJ 默认的部署目录是当前工程目录下的 out 文件夹。即在写好代码并点击右上角的运行按钮后，IntelliJ 会将项目文件输出到当前项目目录下的 out 文件夹而不是 webapps 中，也就意味着，此时如果采用手动启动 Tomcat 服务的方式，是无法通过访问 localhost:8080/myproject 访问项目的；</p>
+<p> 这里修改 Artifacts &gt; Output Directory 为 webapps/myproject：<br><img src="http://i.imgur.com/qVk4P30.png" alt="部署目录"></p>
+</li>
+<li>设定启动端口，这里可以取消勾选 Open Brwoser After launch 选项（是否在点击运行按钮后自动打开浏览器并访问项目）<br><img src="http://i.imgur.com/6nwSH8C.png" alt="部署Tomcat"></li>
+<li>在 deployment 中设定项目 Context：<br><img src="http://i.imgur.com/CY3pQKS.png" alt="Depolyment"></li>
+<li>编辑index.jsp<br><img src="http://i.imgur.com/vvMZRc5.png" alt="index.jsp"></li>
+<li>success<br><img src="http://i.imgur.com/9LbRxg8.png" alt="success"></li>
+</ol>
+<p><strong>详细配置访问</strong><br><a href="https://segmentfault.com/a/1190000007088964" target="_blank" rel="external">https://segmentfault.com/a/1190000007088964</a></p>
+<p><strong>特别注意</strong></p>
+<p>将项目放在Tomcat-&gt;webapps目录下无法访问的问题，由于该文件夹没有写权限，无法生成字节码文件，所以访问index.jsp文件找不到。需要在Apache Software Foundation文件夹添加权限。添加本地账户全部控制。<br><img src="http://i.imgur.com/7f13PqP.png" alt="项目"><br><img src="http://i.imgur.com/p2fvCz4.png" alt="添加权限"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shijingoooo.github.io/2017/05/21/Intellij IDEA开发简单JSP/" data-id="cj3071sq40000bgue0bq9xij5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-Hexo+Git搭建个人Blog" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -129,7 +208,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shijingoooo.github.io/2017/05/21/Hexo+Git搭建个人Blog/" data-id="cj2ypa86u00009wueo8bi0jqw" class="article-share-link">Share</a>
+      <a data-url="https://shijingoooo.github.io/2017/05/21/Hexo+Git搭建个人Blog/" data-id="cj2yq78p00000akue3wy7xahy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -174,7 +253,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shijingoooo.github.io/2017/05/21/hello-world/" data-id="cj2ypa87800019wuef2ovzpcf" class="article-share-link">Share</a>
+      <a data-url="https://shijingoooo.github.io/2017/05/21/hello-world/" data-id="cj2yq78pg0001akue9vqsb6hb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -199,7 +278,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Arkiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
     </div>
@@ -209,9 +288,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Siste innlegg</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/05/21/Intellij IDEA开发简单JSP/">Intellij IDEA开发简单JSP</a>
+          </li>
         
           <li>
             <a href="/2017/05/21/Hexo+Git搭建个人Blog/">环境搭建</a>
