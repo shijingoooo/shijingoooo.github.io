@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Java 热部署与热更新 | 开始Blog吧</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="java的热部署和热加载在应用运行的时升级软件，无需重新启动的方式有两种，热部署和热加载。 对于Java应用程序来说，热部署就是在服务器运行时重新部署项目，热加载即在在运行时重新加载class，从而升级应用。 实现原理热加载的实现原理主要依赖java的类加载机制，在实现方式可以概括为在容器启动的时候起一条后台线程，定时的检测类文件的时间戳变化，如果类的时间戳变掉了，则将类重新载入。 对比反射机制，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 热部署与热更新">
+<meta property="og:url" content="https://shijingoooo.github.io/2017/07/07/Java 热部署与热更新/index.html">
+<meta property="og:site_name" content="开始Blog吧">
+<meta property="og:description" content="java的热部署和热加载在应用运行的时升级软件，无需重新启动的方式有两种，热部署和热加载。 对于Java应用程序来说，热部署就是在服务器运行时重新部署项目，热加载即在在运行时重新加载class，从而升级应用。 实现原理热加载的实现原理主要依赖java的类加载机制，在实现方式可以概括为在容器启动的时候起一条后台线程，定时的检测类文件的时间戳变化，如果类的时间戳变掉了，则将类重新载入。 对比反射机制，">
+<meta property="og:updated_time" content="2017-05-26T10:45:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java 热部署与热更新">
+<meta name="twitter:description" content="java的热部署和热加载在应用运行的时升级软件，无需重新启动的方式有两种，热部署和热加载。 对于Java应用程序来说，热部署就是在服务器运行时重新部署项目，热加载即在在运行时重新加载class，从而升级应用。 实现原理热加载的实现原理主要依赖java的类加载机制，在实现方式可以概括为在容器启动的时候起一条后台线程，定时的检测类文件的时间戳变化，如果类的时间戳变掉了，则将类重新载入。 对比反射机制，">
+  
+    <link rel="alternate" href="/atom.xml" title="开始Blog吧" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">开始Blog吧</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://shijingoooo.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Java 热部署与热更新" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/07/Java 热部署与热更新/" class="article-date">
+  <time datetime="2017-07-07T14:05:00.801Z" itemprop="datePublished">2017-07-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java 热部署与热更新
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="java的热部署和热加载"><a href="#java的热部署和热加载" class="headerlink" title="java的热部署和热加载"></a>java的热部署和热加载</h3><p>在应用运行的时升级软件，无需重新启动的方式有两种，热部署和热加载。</p>
+<p>对于Java应用程序来说，热部署就是在服务器运行时重新部署项目，热加载即在在运行时重新加载class，从而升级应用。</p>
+<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>热加载的实现原理主要依赖java的类加载机制，在实现方式可以概括为在容器启动的时候起一条后台线程，定时的检测类文件的时间戳变化，如果类的时间戳变掉了，则将类重新载入。</p>
+<p>对比反射机制，反射是在运行时获取类信息，通过动态的调用来改变程序行为；<br>热加载则是在运行时通过重新加载改变类信息，直接改变程序行为。</p>
+<p>热部署原理类似，但它是直接重新加载整个应用，这种方式会释放内存，比热加载更加干净彻底，但同时也更费时间。</p>
+<h3 id="Tomcat热部署"><a href="#Tomcat热部署" class="headerlink" title="Tomcat热部署"></a>Tomcat热部署</h3><p>《智能雷电防御设备运维检测平台环境搭建》文章最后提到热更新有失效情况，通过热部署可以解决此问题，代价是每次部署项目（方便程序员就行）</p>
+<p>在<code>tomcat\conf\server.xml</code>中的<code>&lt;host&gt;&lt;/host&gt;</code>内部添加<code>&lt;context/&gt;</code>标签:</p>
+<p><code>&lt;Context debug=&quot;0&quot; docBase=&quot;D:\demo1\web&quot; path=&quot;/demo1&quot; privileged=&quot;true&quot; reloadable=&quot;true&quot;/&gt;</code></p>
+<p><code>docBase</code>:是项目路径，可以使用绝对路径或相对路径，相对路径是相对于webapps </p>
+<p><code>path</code>:访问项目的路径，如：<code>http://127.0.0.1:8080/demo1</code></p>
+<p><code>reloadable</code>:是否自动加载新增或改变的class文件</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shijingoooo.github.io/2017/07/07/Java 热部署与热更新/" data-id="cj4txod570000c8uew9qvhz9b" class="article-share-link">Delen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/06/05/智能雷电防御设备运维检测平台环境搭建/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">智能雷电防御设备运维检测平台</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archieven</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recente berichten</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/07/07/Java 热部署与热更新/">Java 热部署与热更新</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/05/智能雷电防御设备运维检测平台环境搭建/">智能雷电防御设备运维检测平台</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/21/Intellij IDEA开发简单JSP/">Intellij IDEA开发简单JSP</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/21/Hexo+Git搭建个人Blog/">环境搭建</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/21/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Shijing<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

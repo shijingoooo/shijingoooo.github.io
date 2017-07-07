@@ -50,7 +50,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://shijingoooo.github.io"></form>
@@ -60,6 +60,225 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Java 热部署与热更新" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/07/Java 热部署与热更新/" class="article-date">
+  <time datetime="2017-07-07T14:05:00.801Z" itemprop="datePublished">2017-07-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/07/Java 热部署与热更新/">Java 热部署与热更新</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="java的热部署和热加载"><a href="#java的热部署和热加载" class="headerlink" title="java的热部署和热加载"></a>java的热部署和热加载</h3><p>在应用运行的时升级软件，无需重新启动的方式有两种，热部署和热加载。</p>
+<p>对于Java应用程序来说，热部署就是在服务器运行时重新部署项目，热加载即在在运行时重新加载class，从而升级应用。</p>
+<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>热加载的实现原理主要依赖java的类加载机制，在实现方式可以概括为在容器启动的时候起一条后台线程，定时的检测类文件的时间戳变化，如果类的时间戳变掉了，则将类重新载入。</p>
+<p>对比反射机制，反射是在运行时获取类信息，通过动态的调用来改变程序行为；<br>热加载则是在运行时通过重新加载改变类信息，直接改变程序行为。</p>
+<p>热部署原理类似，但它是直接重新加载整个应用，这种方式会释放内存，比热加载更加干净彻底，但同时也更费时间。</p>
+<h3 id="Tomcat热部署"><a href="#Tomcat热部署" class="headerlink" title="Tomcat热部署"></a>Tomcat热部署</h3><p>《智能雷电防御设备运维检测平台环境搭建》文章最后提到热更新有失效情况，通过热部署可以解决此问题，代价是每次部署项目（方便程序员就行）</p>
+<p>在<code>tomcat\conf\server.xml</code>中的<code>&lt;host&gt;&lt;/host&gt;</code>内部添加<code>&lt;context/&gt;</code>标签:</p>
+<p><code>&lt;Context debug=&quot;0&quot; docBase=&quot;D:\demo1\web&quot; path=&quot;/demo1&quot; privileged=&quot;true&quot; reloadable=&quot;true&quot;/&gt;</code></p>
+<p><code>docBase</code>:是项目路径，可以使用绝对路径或相对路径，相对路径是相对于webapps </p>
+<p><code>path</code>:访问项目的路径，如：<code>http://127.0.0.1:8080/demo1</code></p>
+<p><code>reloadable</code>:是否自动加载新增或改变的class文件</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shijingoooo.github.io/2017/07/07/Java 热部署与热更新/" data-id="cj4txod570000c8uew9qvhz9b" class="article-share-link">Delen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-智能雷电防御设备运维检测平台环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/05/智能雷电防御设备运维检测平台环境搭建/" class="article-date">
+  <time datetime="2017-06-05T15:01:05.136Z" itemprop="datePublished">2017-06-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/05/智能雷电防御设备运维检测平台环境搭建/">智能雷电防御设备运维检测平台</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、首先搭建Intellij-IDEA开发简单JSP环境，参考上一篇文章。"><a href="#一、首先搭建Intellij-IDEA开发简单JSP环境，参考上一篇文章。" class="headerlink" title="一、首先搭建Intellij IDEA开发简单JSP环境，参考上一篇文章。"></a>一、首先搭建Intellij IDEA开发简单JSP环境，参考上一篇文章。</h3><h3 id="一-安装Maven"><a href="#一-安装Maven" class="headerlink" title="一.安装Maven"></a>一.安装Maven</h3><ol>
+<li><p><a href="https://maven.apache.org/download.cgi" target="_blank" rel="external">下载</a></p>
+</li>
+<li><p>配置环境变量</p>
+<pre><code>M2_HOME
+D:\workspace_2017\apache-maven-3.3.3
+
+PATH
+%M2_HOME%\bin
+</code></pre></li>
+<li><p>测试Maven</p>
+<pre><code>cmd-&gt;mvn -v
+</code></pre></li>
+<li><p>导入repo文件夹，修改settings.xml配置文件</p>
+</li>
+</ol>
+<p>repo文件夹里面是项目可能用到的jar包，由Maven管理。</p>
+<p>修改settings.xml文件，<code>&lt;localRepository&gt;D:/apache-maven-3.3.3/conf/repo&lt;/localRepository&gt;</code>将repo文件夹放在conf下。</p>
+<h3 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a><strong>项目配置</strong></h3><ol>
+<li>Project </li>
+</ol>
+<p>project compliler output：配置的是项目中的默认编译输出总目录。里面英文也说明了，每个模块可以自己设置特殊的输出目录，所以这个基本上没用</p>
+<ol>
+<li>Modules</li>
+</ol>
+<p>项目的模块，一个项目中可以有多个子项目，每个子项目相当于一个模块一般我们项目只是单独的一个，所以只需要配置一个模块，我们可以给模块添加框架</p>
+<p><img src="http://i.imgur.com/y31Qp5Q.jpg" alt="Modules"></p>
+<p>根据我们项目中的使用到东西，添加对应的框架，并在框架里面确定一下相关的配置文件（因为不同IDE下，项目的文件结构可能不同 所以导入的项目我们要注意一下配置）</p>
+<p>模块配置根目下  分为了三个标签：Sources—— Paths—— Depedencies</p>
+<p><img src="http://i.imgur.com/KokOmra.jpg" alt="Sources_Paths_Dependencies"></p>
+<p>Sources标签下 主要显示项目的目录资源  那些是项目部署的时候需要的目录 有颜色提示</p>
+<p>（比如绿色是测试目录 橘色是target的目录 这些部署的时候都不需要  大红色是我的项目下没有的 蓝色是真正需要部署） </p>
+<p>Paths标签下 </p>
+<p><img src="http://i.imgur.com/uIRus8p.jpg" alt="Paths"></p>
+<p>可以指定项目的编译输出目录 也就是项目类 和 测试类的编译输出地址（替换掉了Project的默认输出地址）</p>
+<p>Depedencies是项目的依赖</p>
+<p><img src="http://i.imgur.com/XLYZfJX.jpg" alt="Depedencies"></p>
+<p>我们可以点击右侧的+号  添加lib  比如tomcat的lib  默认加进来就是Provided </p>
+<p>（和maven的里面的jar依赖差不多）</p>
+<p>Provided 也就是项目部署的时候是忽略的 只是再编译项目的时候进行使用</p>
+<p>Compile 是跟随着项目部署的  Test也是不部署的</p>
+<ol>
+<li>Libraries</li>
+</ol>
+<p>里面可以添加项目jar包 并且可以把多个jar放在一个组里面  类似于jar包整理</p>
+<p>这个下添加的jar 会在Depedencies中显示（反之不可以）</p>
+<ol>
+<li>Facts</li>
+</ol>
+<p>项目的门面，说实话，真不知道这个是干嘛的，和modules差不多，主要是为了确认一下吧</p>
+<ol>
+<li>Artifacts</li>
+</ol>
+<p>项目的打包部署设置，这个是项目配置里面比较关键的地方</p>
+<p><img src="http://i.imgur.com/X4b6En3.jpg" alt="Artifacts"></p>
+<p>注意红框的地方</p>
+<p>第一个是我们需要添加项目的部署包 注意选择是exploded的war包</p>
+<p>第二个是项目的输出目录 非maven项目这个可以设置到任何地方,</p>
+<p>（ maven项目的需要特殊注意 这个后面再说）</p>
+<p>第三个是输出结构（output layout） 参考图中的几个文件 </p>
+<p>（maven项目如果不使用maven的打包编译  注意图中WEB-INF下的lib要有项目部署的jar）</p>
+<h3 id="非Maven项目的创建部署"><a href="#非Maven项目的创建部署" class="headerlink" title="非Maven项目的创建部署"></a>非Maven项目的创建部署</h3><p>创建File——New Project——Java——Web Application</p>
+<p>（注意New Project里面不是选择的web 而是java）</p>
+<p>intellij中web项目 默认网页根目录是web </p>
+<p>项目配置可参考2中的几个地方 根据自己的需求自己修改</p>
+<p>artifact中out directory 可以指定到任何地方 项目打包编译到指定的目录下  </p>
+<p>在intellij中启动tomcat  都会以对应war包out directory的设置的目录为工作空间</p>
+<p>tomcat配置请参考<a href="http://my.oschina.net/u/140593/blog/177042#OSC_h1_2" target="_blank" rel="external">http://my.oschina.net/u/140593/blog/177042#OSC_h1_2</a> 中的2-7</p>
+<h3 id="Maven项目的部署"><a href="#Maven项目的部署" class="headerlink" title="Maven项目的部署"></a>Maven项目的部署</h3><p>在intellij中 maven项目还是可以按照maven的打包编译 参考图中的几个生命周期 手动去执行</p>
+<p><img src="http://i.imgur.com/qE1uCVf.jpg" alt="Maven"></p>
+<p>因为maven项目的约定 是项目打包编译到 target目录下  </p>
+<p>所以我们在2中配置都应该去遵循maven的配置约定进行修改</p>
+<p>这样我们的项目在文件修改或者热部署的时候  intellij的编译才能和maven项目保持一致 </p>
+<p>（如果是在intellij中创建maven项目 那个intellij会给你配置好所有的配置  </p>
+<p>基本不用修改 我们可以创建一个springmvc的例子进行参考）</p>
+<p><strong>需要注意的地方是：</strong></p>
+<p>maven项目  artifact中out directory 的目录名 </p>
+<p>一定要和pom文件中build的finalName一致</p>
+<p>另外pom文件中 要配置<packaging>war</packaging></p>
+<p>比如pom中配置的项目bulid finalName叫做ROOT</p>
+<p>那么我们的out directory为  E:\项目积累\test1\target\ROOT </p>
+<p>通过maven编译以及打包项目后</p>
+<p>在服务器的配置中，可以去掉下图红色区域的两个选项，避免每次启动时都重新编译和打包 </p>
+<p><img src="http://i.imgur.com/3mJqjQe.jpg" alt="Tomcat"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>一. <a href="http://blog.csdn.net/yangcheng33/article/details/53016764" target="_blank" rel="external">Intellij IDEA通过tomcat部署web项目的机制</a></p>
+<p>所以通过IDEA启动Tomcat，并不同于Tomcat的bin目录下<code>startup.bat</code>启动，如果先手动启动，那么IDEA无法启动，问题是8080端口被占用，当然可以重新配置IDEA下的Tomcat在不同的端口。这样就有多个Tomcat实例，有时候项目会需要。</p>
+<p>为什么IDEA不想Eclipse那样可以可以直接部署项目到Tomcat-&gt;webapps？</p>
+<p>个人认为：1.Tomcat 9开始，Tomcat目录默认没有写权限，可能是限制用户随意修改。那么如果配置到webapps目录下，当第一次访问页面时候jsp页面会生成字节码，这些字节码无法保存到目录中，访问时候出现404错误。那么IDEA就没有必要默认使用部署到Tomcat目录的方法（当然可以手动设置Output）。下面红框里面是我修改的部署目录。<br><img src="http://i.imgur.com/kkHfGyc.png" alt="手动修改部署目录"><br><img src="http://i.imgur.com/yekQ4aO.png" alt="tomcat_webapps目录"></p>
+<p>二. <a href="http://www.10tiao.com/html/591/201702/2247483948/1.html" target="_blank" rel="external">Tomcat部署时war和war exploded区别以及平时踩得坑</a></p>
+<h3 id="war和war-exploded的区别"><a href="#war和war-exploded的区别" class="headerlink" title="war和war exploded的区别"></a><strong>war和war exploded的区别</strong></h3><p>在使用IDEA开发项目的时候，部署Tomcat的时候通常会出现下边的情况：</p>
+<p><img src="http://i.imgur.com/eJxL8V3.png" alt="Deployment"></p>
+<p>是选择war还是war exploded 这里首先看一下他们两个的区别：</p>
+<p>war模式：将WEB工程以包的形式上传到服务器 ；</p>
+<p>war exploded模式：将WEB工程以当前文件夹的位置关系上传到服务器；</p>
+<p>（1）war模式这种可以称之为是发布模式，看名字也知道，这是先打成war包，再发布；</p>
+<p>（2）war exploded模式是直接把文件夹、jsp页面 、classes等等移到Tomcat 部署文件夹里面，进行加载部署。因此这种方式支持热部署，一般在开发的时候也是用这种方式。</p>
+<p>（3）在平时开发的时候，使用热部署的话，应该对Tomcat进行相应的设置，这样的话修改的jsp界面什么的东西才可以及时的显示出来。</p>
+<p><img src="http://i.imgur.com/TDqh0Qv.png" alt="Server"></p>
+<p>修改箭头指向的位置，这样的话就可以实现热部署。</p>
+<h3 id="使用war模式开发的时候遇到的坑"><a href="#使用war模式开发的时候遇到的坑" class="headerlink" title="使用war模式开发的时候遇到的坑"></a><strong>使用war模式开发的时候遇到的坑</strong></h3><ol>
+<li>项目代码的位置如下：</li>
+</ol>
+<p><img src="http://i.imgur.com/PD7lbdD.png" alt="项目代码位置"></p>
+<p>上述项目为SSM项目。</p>
+<ol>
+<li>部署使用的Tomcat位置：</li>
+</ol>
+<p><img src="http://i.imgur.com/vY6QtZc.png" alt="部署使用的Tomcat位置"></p>
+<ol>
+<li>用于获取上下文环境绝对路径的代码：</li>
+</ol>
+<p><img src="http://i.imgur.com/bB3qdNS.png" alt="获取上下文环境绝对路径代码"></p>
+<ol>
+<li>两种方式的实验过程和结果：</li>
+</ol>
+<p>（1）在使用war模式开发的时候，通过下边这段代码获取项目的相对路径：</p>
+<p><img src="http://i.imgur.com/bB3qdNS.png" alt="获取上下文环境绝对路径代码"></p>
+<p>war模式始终是获取到的路径如下：</p>
+<p><img src="http://i.imgur.com/EZoBXk9.png" alt="war模式"></p>
+<p>其中C:\Software\apache-tomcat-8.0.32 是我Tomcat的所在位置。</p>
+<p>可以看出通过war模式是最终打包部署到Tomcat的位置。</p>
+<p>（2）然后再看war exploded模式,同样进行设置，运行同一段代码，运行结果如下：</p>
+<p><img src="http://i.imgur.com/bp2COBm.png" alt="war exploded模式"></p>
+<p>可以看出最终得到的是我这个项目的位置，其实就是这个项目target的位置。</p>
+<ol>
+<li>总结</li>
+</ol>
+<p>根据上述（1）（2）的实验结果可以看到这两种方式得部署方式是不一样的，因此在获取项目的相对路径的时候得到的结果是不一样的。</p>
+<p>三. 开发中jsp、css无法热更新</p>
+<p>方法一、 清除Tomcat和浏览器缓存。</p>
+<p><strong>Tomcat：我是在IDEA下启动Tomcat，所以删除下图文件夹。</strong></p>
+<p><img src="http://i.imgur.com/veCW2La.png" alt="清除tomcat缓存"></p>
+<p><strong>chrome：清除localhost页面缓存。</strong></p>
+<p><img src="http://i.imgur.com/T1k1dRu.png" alt="清除chrome单页面缓存"></p>
+<p>方法二、 1.IDEA安装LiveEdit插件，2.配置tomcat</p>
+<p>On frame deactivated意思是当保存代码或者编辑框失去焦点时做什么，图中是更新类（后端java）和资源文件（前段js、css）。<br>项目一般就按照图中设置，需要注意一点是.war部署的时候无法Update classes and resources，原因见上面war 与 war exploded区别。<br>这种方法极少情况还是无法更新，不知道为什么。<br><img src="http://i.imgur.com/GcTffkc.png" alt="配置tomcat"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shijingoooo.github.io/2017/06/05/智能雷电防御设备运维检测平台环境搭建/" data-id="cj3k9nz9z0001w8uejozpxw3z" class="article-share-link">Delen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-Intellij IDEA开发简单JSP" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -130,7 +349,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shijingoooo.github.io/2017/05/21/Intellij IDEA开发简单JSP/" data-id="cj3071sq40000bgue0bq9xij5" class="article-share-link">Share</a>
+      <a data-url="https://shijingoooo.github.io/2017/05/21/Intellij IDEA开发简单JSP/" data-id="cj3k9nzaz0003w8ue66z77tfs" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -208,7 +427,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shijingoooo.github.io/2017/05/21/Hexo+Git搭建个人Blog/" data-id="cj2yq78p00000akue3wy7xahy" class="article-share-link">Share</a>
+      <a data-url="https://shijingoooo.github.io/2017/05/21/Hexo+Git搭建个人Blog/" data-id="cj3k9nz9c0000w8ue8fjlnomj" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -253,7 +472,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shijingoooo.github.io/2017/05/21/hello-world/" data-id="cj2yq78pg0001akue9vqsb6hb" class="article-share-link">Share</a>
+      <a data-url="https://shijingoooo.github.io/2017/05/21/hello-world/" data-id="cj3k9nza90002w8uecnkl9qyz" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -278,9 +497,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
     </div>
   </div>
 
@@ -288,9 +507,17 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/07/07/Java 热部署与热更新/">Java 热部署与热更新</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/05/智能雷电防御设备运维检测平台环境搭建/">智能雷电防御设备运维检测平台</a>
+          </li>
         
           <li>
             <a href="/2017/05/21/Intellij IDEA开发简单JSP/">Intellij IDEA开发简单JSP</a>
